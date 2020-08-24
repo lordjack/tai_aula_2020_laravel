@@ -21,8 +21,6 @@ Projeto desenvolvido durante as aulas de tópicos avançados em informática no 
 **Iniciar o servidor**  
 `php artisan serve`
 
-**Loga na Aplicação**
-
 ## Mais Comandos Básicos Úteis  
 Esses comandos devem ser usados no terminal / cmd do projeto
 
