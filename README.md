@@ -21,13 +21,6 @@ Projeto desenvolvido durante as aulas de tópicos avançados em informática no 
 **Iniciar o servidor**  
 `php artisan serve`
 
-**Registra um usuário através do endereço**  
-[http://localhost:8000/register](http://localhost:8000/register)
-
-**Cadastra o usuario**  
-> admin@admin.com  
-> admin123
-
 **Loga na Aplicação**
 
 ## Mais Comandos Básicos Úteis  
