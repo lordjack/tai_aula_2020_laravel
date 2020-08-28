@@ -1,7 +1,7 @@
 ## About this Project
 Projeto desenvolvido durante as aulas de tópicos avançados em informática no curso técnico integrado do IFSC 2020.1
 
-## Passo 01 - Clonar projeto
+**Passo 01 - Clonar projeto  
 `git clone https://github.com/lordjack/tai_aula_2020_laravel`
 
 ### Comandos para serem feitos após clonar o projeto, executar os comando abaixo dentro do diretorio do projeto
@@ -36,8 +36,11 @@ Esses comandos devem ser usados no terminal / cmd do projeto
 **Criar um Controller e o --model associa com o Model da tabela**  
 `php artisan make:controller NomeTabelaController --resource --model=NomeTabelaModel`
 
-**Executa a insersão dos registros no banco de dados**  
+**Executa a insersão dos registros no banco de dados de tudo que esta dentro do database/seeds/DatabaseSeeder.php**  
 `php artisan db:seed`
+
+**Executa a insersão dos registros no banco de dado, de forma separada por Classe**  
+`php artisan db:seed --class=NomeTabelaSeeder`
 
 
 ## License
