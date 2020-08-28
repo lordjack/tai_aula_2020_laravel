@@ -13,7 +13,18 @@ Projeto desenvolvido durante as aulas de tópicos avançados em informática no 
 ## Aprenda sobre o Laravel
 Documentação Oficial [documentation](https://laravel.com/docs) 
 
-**Passo 01 - Clonar projeto  
+**Links Úteis**  
+[Estrutura do Framework](https://blog.especializati.com.br/estrutura-do-framework-php-laravel/) 
+
+**Cursos Gratuitos**  
+[Curso Grátis – Laravel de A a Z](https://www.youtube.com/watch?v=4T7sDt_00Ms&list=PLC3EZa6iCgPwufZ40xMRF-4cHgzepuNFa)   
+[Curso Laravel 6.x (Gratuito!)](https://www.youtube.com/watch?v=fCR6ogiPopU&list=PLVSNL1PHDWvQBtcH_4VR82Dg-aFiVOZBY)  
+[Curso Gratuito de Introdução ao Framework Laravel](https://www.portalgsti.com.br/cursos/introducao-ao-framework-laravel/)   
+ 
+**Cursos Pagos**  
+[Laravel 5.8 Completo - O mais poderoso Framework PHP](https://www.udemy.com/laravelcompleto/)  
+
+**Passo 01 - Clonar projeto**   
 `git clone https://github.com/lordjack/tai_aula_2020_laravel`
 
 ### Comandos para serem feitos após clonar o projeto, executar os comando abaixo dentro do diretorio do projeto
