@@ -23,8 +23,6 @@ Route::get('/aluno', function () {
 */
 
 Route::get('/aluno', 'AlunoController@index');
-Route::get('/aluno/create', "AlunoController@create"); // carregar o formulário
-Route::post('/aluno/store', 'AlunoController@store'); // salvar os dados do formulário
 
 Route::get('/materiais', function () {
     return view('materiais');
