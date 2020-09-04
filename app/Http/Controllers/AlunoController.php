@@ -22,8 +22,8 @@ class AlunoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome'=>'required|max:100',
-            'curso'=>'required',
+            'nome' => 'required|max:100',
+            'curso' => 'required',
         ]);
 
         $objAluno = new AlunoModel();
@@ -35,5 +35,30 @@ class AlunoController extends Controller
 
         return redirect()->action('AlunoController@index')
             ->with('success', 'Aluno Salvo com sucesso.');
+    }
+
+    public function edit($id)
+    {
+        $aluno = AlunoModel::findorfail($id);
+
+        return view('aluno.edit')->with('aluno', $aluno);
+    }
+
+    public function update(Request $request)
+    {
+        $request->validate([
+            'nome' => 'required|max:100',
+            'curso' => 'required',
+        ]);
+
+        $objAluno = AlunoModel::findorfail($request->id);
+        $objAluno->nome = $request->nome;
+        $objAluno->curso = $request->curso;
+        $objAluno->turma = $request->turma;
+
+        $objAluno->save();
+
+        return redirect()->action('AlunoController@index')
+            ->with('success', 'Aluno Alterado com sucesso.');
     }
 }

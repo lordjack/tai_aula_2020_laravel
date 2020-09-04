@@ -9,7 +9,7 @@
 
 <body>
 
-    <a href="{{url('/')}}">Home</a> 
+    <a href="{{url('/')}}">Home</a>
 
     <a href="{{url('/aluno/create')}}">Cadastrar</a>
 
@@ -22,6 +22,9 @@
                 <td>{{$dados->nome}}</td>
                 <td>{{$dados->curso}}</td>
                 <td>{{$dados->turma}}</td>
+                <td>
+                    <a href="{{ action('AlunoController@edit',$dados->id)}}"> Editar </a>
+                </td>
             </tr>
             @endforeach
         </tbody>
