@@ -39,9 +39,9 @@ class AlunoController extends Controller
 
     public function edit($id)
     {
-        $aluno = AlunoModel::findorfail($id);
+        $objAluno = AlunoModel::findorfail($id);
 
-        return view('aluno.edit')->with('aluno', $aluno);
+        return view('aluno.edit')->with('aluno', $objAluno);
     }
 
     public function update(Request $request)
@@ -59,6 +59,6 @@ class AlunoController extends Controller
         $objAluno->save();
 
         return redirect()->action('AlunoController@index')
-            ->with('success', 'Aluno Alterado com sucesso.');
+            ->with('success', 'Aluno Editado com sucesso.');
     }
 }

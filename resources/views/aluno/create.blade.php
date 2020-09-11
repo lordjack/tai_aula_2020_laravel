@@ -27,6 +27,7 @@
         <label>Turma</label> </br>
         <input type="text" name="turma" /> </br>
         <button type="submit">Salvar</button>
+        <a href="{{url('aluno')}}">Voltar</a>
     </form>
 </body>
 
