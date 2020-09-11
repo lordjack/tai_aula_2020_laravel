@@ -28,6 +28,7 @@
                 <td>{{$dados->curso}}</td>
                 <td>{{$dados->turma}}</td>
                 <td> <a href="{{action('AlunoController@edit',$dados->id)}}">Editar</a></td>
+                <td> <a onclick="return confirm('Tem certeza que deseja remover?')" href="{{action('AlunoController@remove',$dados->id)}}">Remover</a></td>
             </tr>
             @endforeach
         </tbody>

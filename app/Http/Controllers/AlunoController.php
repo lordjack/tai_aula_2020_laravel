@@ -61,4 +61,15 @@ class AlunoController extends Controller
         return redirect()->action('AlunoController@index')
             ->with('success', 'Aluno Editado com sucesso.');
     }
+
+    public function remove($id)
+    {
+
+        $objAluno = AlunoModel::findOrFail($id);
+
+        $objAluno->delete();
+
+        return redirect()->action('AlunoController@index')
+            ->with('success', 'Aluno Removido com sucesso.');
+    }
 }
