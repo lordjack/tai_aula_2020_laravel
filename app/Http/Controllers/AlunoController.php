@@ -62,58 +62,41 @@ class AlunoController extends Controller
         return redirect()->action('AlunoController@index')
             ->with('success', 'Aluno Editado com sucesso.');
     }
-
     public function remove($id)
     {
-
+        //select * from alunos where id = $id
         $objAluno = AlunoModel::findOrFail($id);
 
         $objAluno->delete();
 
         return redirect()->action('AlunoController@index')
-            ->with('success', 'Aluno Removido com sucesso.');
+            ->with('success', 'Aluno Remover com sucesso.');
     }
-
-
     public function search(Request $request)
     {
         //opção 01
-        //$objAluno = AlunoModel::where('nome', 'LIKE', '%' . $request->nome . '%')->orWhere('curso', 'LIKE', '%' . $request->curso . '%')->get();
-
-        //opção 02
-
-        //validação do formulário
         /*
-        $request->validate([
-            // 'nome' => 'required|unique:posts|max:255',
-            'nome' => 'min:3',
-            'autor' => 'min:3',
-        ]);
+        if (!empty($request->nome)) {
+            $objAluno = AlunoModel::where('nome', 'like', '%' . $request->nome . '%')->get();
+        } else if (!empty($request->curso)) {
+            $objAluno = AlunoModel::where('curso', 'like', '%' . $request->curso . '%')->get();
+        } else {
+            $objAluno = AlunoModel::orderBy('id')->get();
+        }
         */
-        /*
+        //opção 02
         $query = DB::table('alunos');
 
-        $nome = $request->nome;
-        $curso = $request->curso;
-
-        if (!empty($nome)) {
-            $query->where('nome', 'like', '%' . $nome . '%');
-        }
-        if (!empty($curso)) {
-            $query->where('curso', 'like', '%' . $curso . '%');
-        }
-        $alunos = $query->orderBy('id')->get();
-
-        */
         if (!empty($request->nome)) {
-            $alunos = AlunoModel::where('nome', 'LIKE', '%' . $request->nome . '%')->get();
-        }
-        if (!empty($request->curso)) {
-            $alunos = AlunoModel::where('curso', 'LIKE', '%' . $request->curso . '%')->get();
-        } else {
-            $alunos = AlunoModel::orderBy("id")->get();
+            $query->where('nome', 'like',  '%' . $request->nome . '%');
         }
 
-        return view('aluno.list')->with('alunos', $alunos);
+        if (!empty($request->curso)) {
+            $query->where('curso', 'like', '%' . $request->curso . '%');
+        }
+
+        $objAluno = $query->orderBy('id')->get();
+
+        return view('aluno.list')->with('alunos', $objAluno);
     }
 }

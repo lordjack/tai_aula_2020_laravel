@@ -11,14 +11,13 @@
 
     <a href="{{url('/')}}">Home</a>
     <a href="{{url('/aluno/create')}}">Cadastrar</a>
-
-    <form action="{{action('AlunoController@search')}}" method="post">
+    <form action="{{ action('AlunoController@search')}}" method="POST">
         @csrf
         <label>Nome</label>
-        <input type="text" name="nome" /> 
+        <input type="text" name="nome"/>
 
-        <label>Curso</label> 
-        <input type="text" name="curso" />
+        <label>Curso</label>
+        <input type="text" name="curso"/>
 
         <button type="submit">Buscar</button>
     </form>
@@ -38,7 +37,7 @@
                 <td>{{$dados->curso}}</td>
                 <td>{{$dados->turma}}</td>
                 <td> <a href="{{action('AlunoController@edit',$dados->id)}}">Editar</a></td>
-                <td> <a onclick="return confirm('Tem certeza que deseja remover?')" href="{{action('AlunoController@remove',$dados->id)}}">Remover</a></td>
+                <td> <a href="{{action('AlunoController@remove',$dados->id)}}" onclick="return confirm('Tem certeza que deseja remover?');">Remover</a></td>
             </tr>
             @endforeach
         </tbody>
