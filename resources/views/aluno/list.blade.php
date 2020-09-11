@@ -12,6 +12,16 @@
     <a href="{{url('/')}}">Home</a>
     <a href="{{url('/aluno/create')}}">Cadastrar</a>
 
+    <form action="{{action('AlunoController@search')}}" method="post">
+        @csrf
+        <label>Nome</label>
+        <input type="text" name="nome" /> 
+
+        <label>Curso</label> 
+        <input type="text" name="curso" />
+
+        <button type="submit">Buscar</button>
+    </form>
     <h3>Listagem de Alunos</h3>
     <table>
         <tbody>

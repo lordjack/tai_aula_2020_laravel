@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Aluno;
 use Illuminate\Http\Request;
 use App\AlunoModel;
+use Illuminate\Support\Facades\DB;
 
 class AlunoController extends Controller
 {
@@ -71,5 +72,48 @@ class AlunoController extends Controller
 
         return redirect()->action('AlunoController@index')
             ->with('success', 'Aluno Removido com sucesso.');
+    }
+
+
+    public function search(Request $request)
+    {
+        //opção 01
+        //$objAluno = AlunoModel::where('nome', 'LIKE', '%' . $request->nome . '%')->orWhere('curso', 'LIKE', '%' . $request->curso . '%')->get();
+
+        //opção 02
+
+        //validação do formulário
+        /*
+        $request->validate([
+            // 'nome' => 'required|unique:posts|max:255',
+            'nome' => 'min:3',
+            'autor' => 'min:3',
+        ]);
+        */
+        /*
+        $query = DB::table('alunos');
+
+        $nome = $request->nome;
+        $curso = $request->curso;
+
+        if (!empty($nome)) {
+            $query->where('nome', 'like', '%' . $nome . '%');
+        }
+        if (!empty($curso)) {
+            $query->where('curso', 'like', '%' . $curso . '%');
+        }
+        $alunos = $query->orderBy('id')->get();
+
+        */
+        if (!empty($request->nome)) {
+            $alunos = AlunoModel::where('nome', 'LIKE', '%' . $request->nome . '%')->get();
+        }
+        if (!empty($request->curso)) {
+            $alunos = AlunoModel::where('curso', 'LIKE', '%' . $request->curso . '%')->get();
+        } else {
+            $alunos = AlunoModel::orderBy("id")->get();
+        }
+
+        return view('aluno.list')->with('alunos', $alunos);
     }
 }
