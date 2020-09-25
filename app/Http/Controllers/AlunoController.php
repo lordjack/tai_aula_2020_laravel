@@ -13,6 +13,9 @@ class AlunoController extends Controller
     {
         $objAluno = AlunoModel::orderBy("id")->get();
         return view('aluno.list')->with('alunos', $objAluno);
+
+        
+
     }
 
     public function create()
